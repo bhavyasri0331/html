@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f2f2f2;
+    }
+
+    .outer-container {
+      display: flex;
+      align-items: flex-end;
+      height: 400px;
+      width: 90%;
+      background-color: #ddd;
+      padding: 20px;
+      gap: 40px;
+    }
+
+    .inner-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #eee;
+      padding: 10px;
+      gap: 10px;
+      width: 200px;
+      border: 1px solid #aaa;
+    }
+
+    .item {
+      background-color: #bbb;
+      padding: 10px 15px;
+      border-radius: 4px;
+    }
+
+    .center-item {
+      align-self: center; /* overrides parent's align-items */
+      background-color: #ffa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="outer-container">
+  <div class="inner-container">
+    <div class="item">Item A1</div>
+    <div class="item center-item">Item A2 (centered)</div>
+    <div class="item">Item A3</div>
+  </div>
+
+  <div class="inner-container">
+    <div class="item">Item B1</div>
+    <div class="item">Item B2</div>
+  </div>
+</div>
+
+</body>
+</html>

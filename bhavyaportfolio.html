@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhavya Sri - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #0f172a; color: #e2e8f0; }
+    .glow-effect { box-shadow: 0 0 15px rgba(124, 58, 237, 0.5); transition: all 0.3s ease; }
+    .glow-effect:hover { box-shadow: 0 0 25px rgba(124, 58, 237, 0.8); }
+    .card-3d { transform-style: preserve-3d; transition: transform 0.5s ease; }
+    .card-3d:hover { transform: rotateY(10deg) rotateX(5deg) translateY(-10px); }
+  </style>
+</head>
+<body>
+  <nav class="fixed w-full z-50 bg-opacity-90 backdrop-blur-sm bg-gray-900 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <span class="text-xl font-bold text-purple-400">Bhavya Sri Portfolio</span>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="text-gray-300 hover:text-purple-400">Home</a>
+          <a href="#about" class="text-gray-300 hover:text-purple-400">About</a>
+          <a href="#education" class="text-gray-300 hover:text-purple-400">Education</a>
+          <a href="#skills" class="text-gray-300 hover:text-purple-400">Skills</a>
+          <a href="#projects" class="text-gray-300 hover:text-purple-400">Projects</a>
+          <a href="#certifications" class="text-gray-300 hover:text-purple-400">Certifications</a>
+          <a href="#contact" class="text-gray-300 hover:text-purple-400">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="pt-32 pb-20 px-6 flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto">
+    <div class="md:w-1/2 mb-10 md:mb-0 glow-effect p-8 rounded-xl card-3d">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 text-purple-400">GAJAPURAM BHAVYA SRI</h1>
+      <p class="text-xl mb-6 text-gray-300">Aspiring Developer | Data & Web Enthusiast</p>
+      <div class="flex space-x-4">
+        <a href="https://www.linkedin.com/in/bhavya-gajapuram-521437348?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full">LinkedIn</a>
+        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full">GitHub</a>
+      </div>
+    </div>
+    <div class="md:w-1/2 flex justify-center card-3d">
+      <img src="bhavya.jpeg.jpg" alt="Bhavya Sri" class="rounded-full border-4 border-purple-500 w-64 h-64 object-cover">
+    </div>
+  </section>
+
+  <!-- Career Objective -->
+  <section id="about" class="py-20 bg-gray-800 bg-opacity-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-8 text-center text-purple-400">Career Objective</h2>
+      <div class="bg-gray-900 rounded-xl p-8 glow-effect card-3d">
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Seeking an opportunity to work for an organization to learn and explore new technologies and improve skills. Eager to use analytical and coding abilities to build software applications and data-driven solutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Education</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-900 p-6 rounded-xl glow-effect card-3d">
+          <h3 class="text-xl font-bold text-purple-400">Bachelor of Engineering (IT)</h3>
+          <p class="text-gray-400">Malla Reddy Deemed University</p>
+          <p class="text-gray-400">2023 - 2025</p>
+          <p class="text-gray-300 mt-2">CGPA: 8.31/10</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl glow-effect card-3d">
+          <h3 class="text-xl font-bold text-purple-400">Intermediate (MPC)</h3>
+          <p class="text-gray-400">Rishi Junior College</p>
+          <p class="text-gray-400">2021 - 2023</p>
+          <p class="text-gray-300 mt-2">Percentage: 88%</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl glow-effect card-3d">
+          <h3 class="text-xl font-bold text-purple-400">SSC</h3>
+          <p class="text-gray-400">Narayana Talent High School</p>
+          <p class="text-gray-400">2020 - 2021</p>
+          <p class="text-gray-300 mt-2">Percentage: 100%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-20 bg-gray-800 bg-opacity-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Skills</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-900 p-6 rounded-xl glow-effect card-3d">
+          <h3 class="text-xl font-bold text-purple-400">Languages</h3>
+          <p>Python, SQL</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl glow-effect card-3d">
+          <h3 class="text-xl font-bold text-purple-400">Web Development</h3>
+          <p>HTML, CSS, Bootstrap</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl glow-effect card-3d">
+          <h3 class="text-xl font-bold text-purple-400">Tools & Technologies</h3>
+          <p>Machine Learning, Tableau, Power BI</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gray-900 p-6 rounded-xl glow-effect card-3d">
+          <h3 class="text-xl font-bold text-purple-400">Tourism Guide</h3>
+          <p class="text-gray-300 mt-2">Developed a web scraping tool to extract travel destination information and improved user engagement by 40%.</p>
+        </div>
+        <div class="bg-gray-900 p-6 rounded-xl glow-effect card-3d">
+          <h3 class="text-xl font-bold text-purple-400">Food Ordering Website</h3>
+          <p class="text-gray-300 mt-2">Created a responsive food ordering website using HTML, CSS, and Bootstrap with enhanced UX for payments and navigation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="py-20 bg-gray-800 bg-opacity-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Certifications</h2>
+      <div class="bg-gray-900 p-8 rounded-xl glow-effect card-3d">
+        <ul class="list-disc ml-6 space-y-2 text-gray-300">
+          <li>AI Tools Workshop - BE 10X (April 2025)</li>
+          <li>Hackathon at IIT Hyderabad – INSPIRA'25 (March 2025)</li>
+          <li>Introduction to HTML – Sololearn (Dec 2024)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Contact</h2>
+      <div class="bg-gray-900 p-8 rounded-xl glow-effect card-3d">
+        <p><strong>Phone:</strong> +91 7416693325</p>
+        <p><strong>Email:</strong> gajapurambhavya@gmail.com</p>
+        <p><strong>Location:</strong> Hyderabad, India</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-gray-800 text-center text-gray-400">
+    © 2025 Bhavya Sri. All Rights Reserved.
+  </footer>
+</body>
+</html>

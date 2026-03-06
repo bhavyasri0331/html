@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavya Sri - 3D Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <style>
+        body {
+            overflow-x: hidden;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <!-- 3D Background Canvas -->
+    <div id="canvas-container"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-10 bg-gray-900/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">Bhavya Sri</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition">About</a>
+                        <a href="#skills" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition">Skills</a>
+                        <a href="#projects" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition">Projects</a>
+                        <a href="#education" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition">Education</a>
+                        <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">Gajapuram Bhavya Sri</h1>
+                <p class="text-xl md:text-2xl mb-8">IT Engineer | Web Developer | Data Enthusiast</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#contact" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium transition">Get In Touch</a>
+                    <a href="#projects" class="px-6 py-3 border border-indigo-500 hover:bg-gray-800 rounded-lg font-medium transition">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800/50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 section-title">Career Objective</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-3d bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <p class="text-lg leading-relaxed">
+                        Seeking an opportunity to work for an organization to have a platform to learn and explore new technologies and to improve my skills. Eager to leverage analytical skills and coding expertise to drive data-driven solutions and build innovative software applications.
+                    </p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <img src="C:\Users\bhavyasri\OneDrive\Desktop\WhatsApp Image 2025-07-03 at 14.28.57_dd267efd.jpg" alt="Portrait of Bhavya Sri - a young IT professional with a professional yet friendly appearance" class="rounded-full w-64 h-64 object-cover border-4 border-indigo-500 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 section-title">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-3d bg-gray-800 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Languages</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></div>
+                            <span>Python</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></div>
+                            <span>SQL</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-3d bg-gray-800 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Web Development</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></div>
+                            <span>HTML/CSS</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></div>
+                            <span>Bootstrap</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-3d bg-gray-800 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Tools/Technologies</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></div>
+                            <span>Machine Learning</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></div>
+                            <span>Tableau</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></div>
+                            <span>Power BI</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800/50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 section-title">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card-3d bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Tourism Guide (HTML | CSS)</h3>
+                    <img src="C:\Users\bhavyasri\OneDrive\Desktop\WhatsApp Image 2025-07-03 at 16.34.48_5159da41.jpg" alt="Screenshot of Tourism Guide website showing travel destinations with beautiful scenic backgrounds" class="w-full rounded-lg mb-4">
+                    <ul class="space-y-2">
+                        <li class="flex">
+                            <span class="text-indigo-400 mr-2">•</span>
+                            <span>Engineered a web scraping tool that extracted detailed information about top travel destinations based on user preferences.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-indigo-400 mr-2">•</span>
+                            <span>Enhanced user experience by providing personalized content and increasing engagement by 40%.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-3d bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Responsive Website (HTML|CSS|BOOTSTRAP)</h3>
+                    <img src="C:\Users\bhavyasri\OneDrive\Desktop\WhatsApp Image 2025-07-03 at 16.34.44_3e591b91.jpg" alt="Mobile and desktop views of a food ordering website with colorful menu items and ordering interface" class="w-full rounded-lg mb-4">
+                    <ul class="space-y-2">
+                        <li class="flex">
+                            <span class="text-indigo-400 mr-2">•</span>
+                            <span>Developed a fully responsive food ordering website using HTML, CSS, and Bootstrap frameworks, prioritizing user experience and mobile-first design.</span>
+                        </li>
+                        <li class="flex">
+                            <span class="text-indigo-400 mr-2">•</span>
+                            <span>Designed a visually appealing interface for a food ordering website, streamlining user interactions to browse the menu, place orders, and process online payments.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 section-title">Education</h2>
+            <div class="space-y-8">
+                <div class="card-3d bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h3 class="text-xl font-bold gradient-text">Bachelor of Engineering in Information Technology</h3>
+                            <p class="text-gray-400">Malla Reddy Engineering College</p>
+                        </div>
+                        <div class="mt-4 md:mt-0">
+                            <span class="bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">2023 - 2025</span>
+                            <span class="ml-2 bg-green-900/50 text-green-300 px-3 py-1 rounded-full">CGPA: 8.01/10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-3d bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h3 class="text-xl font-bold gradient-text">Board of Intermediate, MPC</h3>
+                            <p class="text-gray-400">Rishi Junior College</p>
+                        </div>
+                        <div class="mt-4 md:mt-0">
+                            <span class="bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">2021 - 2023</span>
+                            <span class="ml-2 bg-green-900/50 text-green-300 px-3 py-1 rounded-full">Percentage: 88%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-3d bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h3 class="text-xl font-bold gradient-text">Class X, SSC</h3>
+                            <p class="text-gray-400">Narayana Talent High School</p>
+                        </div>
+                        <div class="mt-4 md:mt-0">
+                            <span class="bg-indigo-900/50 text-indigo-300 px-3 py-1 rounded-full">2020 - 2021</span>
+                            <span class="ml-2 bg-green-900/50 text-green-300 px-3 py-1 rounded-full">Percentage: 100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="py-20 bg-gray-800/50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 section-title">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-3d bg-gray-800 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-xl font-bold mb-2 gradient-text">AI Tools Workshop</h3>
+                    <p class="text-gray-400">BE 10X</p>
+                    <p class="text-sm text-indigo-300 mt-2">April 2025</p>
+                </div>
+                <div class="card-3d bg-gray-800 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-xl font-bold mb-2 gradient-text">Hackathon at IIT Hyderabad</h3>
+                    <p class="text-gray-400">Inspira'25</p>
+                    <p class="text-sm text-indigo-300 mt-2">March 2025</p>
+                </div>
+                <div class="card-3d bg-gray-800 p-6 rounded-xl shadow-2xl">
+                    <h3 class="text-xl font-bold mb-2 gradient-text">Introduction to HTML</h3>
+                    <p class="text-gray-400">SoloLearn</p>
+                    <p class="text-sm text-indigo-300 mt-2">December 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 section-title">Get In Touch</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card-3d bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-indigo-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-gray-400">Email</p>
+                                <p>gajapurambhavya@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-indigo-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-gray-400">Phone</p>
+                                <p>+91 7416693325</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-indigo-400 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-gray-400">Location</p>
+                                <p>Hyderabad, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-3d bg-gray-800 p-8 rounded-xl shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Send Me a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="text-xl font-bold gradient-text">Bhavya Sri</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-indigo-400 transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-indigo-400 transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Three.js 3D Background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // Add lights
+        const ambientLight = new THREE.AmbientLight(0x404040, 0.8);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+
+        // Create floating cubes
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const cubes = [];
+        const cubeCount = 15;
+
+        for (let i = 0; i < cubeCount; i++) {
+            const color = new THREE.Color(
+                Math.random() * 0.5 + 0.3,
+                Math.random() * 0.5 + 0.3,
+                Math.random() * 0.5 + 0.3
+            );
+            const material = new THREE.MeshPhongMaterial({
+                color: color,
+                transparent: true,
+                opacity: 0.8,
+                shininess: 100
+            });
+            const cube = new THREE.Mesh(geometry, material);
+            
+            // Random position
+            cube.position.x = Math.random() * 20 - 10;
+            cube.position.y = Math.random() * 20 - 10;
+            cube.position.z = Math.random() * 20 - 30;
+            
+            // Random rotation
+            cube.rotation.x = Math.random() * Math.PI;
+            cube.rotation.y = Math.random() * Math.PI;
+            
+            // Random size
+            const size = Math.random() * 2 + 1;
+            cube.scale.set(size, size, size);
+            
+            // Store reference to cube for animation
+            cubes.push({
+                mesh: cube,
+                xSpeed: Math.random() * 0.01 - 0.005,
+                ySpeed: Math.random() * 0.01 - 0.005,
+                zSpeed: Math.random() * 0.01 - 0.005
+            });
+            
+            scene.add(cube);
+        }
+
+        camera.position.z = 30;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Rotate cubes
+            cubes.forEach(cube => {
+                cube.mesh.rotation.x += cube.xSpeed;
+                cube.mesh.rotation.y += cube.ySpeed;
+                cube.mesh.rotation.z += cube.zSpeed;
+            });
+            
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add intersection observer for animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-3d').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

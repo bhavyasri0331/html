@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slide Box</title>
+  <style>
+    .container {
+      position: relative;
+      width: 1000px;
+      height: 100px;
+      background: #f0f0f0;
+    }
+
+    .box {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background-color: crimson;
+      animation: slideLeftRight 2s infinite alternate;
+    }
+
+    @keyframes slideLeftRight {
+      from {
+        left: 0;
+      }
+      to {
+        left: 1000px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box"></div>
+  </div>
+</body>
+</html>

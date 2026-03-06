@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: lightgray;
+    
+    }
+    .item{
+        height: 25px;
+        width: 45px;
+        background-color: rgb(0, 255, 247);
+        transition-duration: 2s;
+        transition-timing-function: ease;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+    .list{
+        height: 25px;
+        width: 45px;
+        background-color: rgb(255, 136, 0);
+        transition-duration: 2s;
+        transition-timing-function: ease;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+    .hi{
+        height: 25px;
+        width: 45px;
+        background-color: rgb(255, 196, 0);
+        transition-duration: 2s;
+        transition-timing-function: ease;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+    .hello{
+        height: 25px;
+        width: 45px;
+        background-color: rgba(255, 0, 144, 0.41);
+        transition-duration: 2s;
+        transition-timing-function: ease;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .item:hover{
+        background-color: rgb(165, 42, 140);
+        /*transform: scale(0.5);*/
+        transform: rotate(360deg);
+        /*transform: translate(20px,50px);*/
+        /*transform: skew(3.5edg);*/
+    }
+    .list:hover{
+        background-color: rgb(42, 165, 87);
+        transform: scale(0.5);
+        /*transform: rotate(360deg);*/
+        /*transform: translate(20px,50px);*/
+        /*transform: skew(3.5edg);*/
+    }
+    .hi:hover{
+        background-color: rgb(157, 124, 112);
+        /*transform: scale(0.5);*/
+        /*transform: rotate(360deg);*/
+        transform: translate(20px,50px);
+        /*transform: skew(3.5edg);*/
+    }
+    .hello:hover{
+        background-color: rgb(66, 193, 44);
+        /*transform: scale(0.5);*/
+        /*transform: rotate(360deg);*/
+        /*transform: translate(20px,50px);*/
+        transform: skew(3.5edg);
+    }
+</style>
+<body>
+   <div class="item">🐼</div> 
+   <div class="list">🐼</div> 
+   <div class="hi">🐼</div> 
+   <div class="hello">🐼</div> 
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .main-container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left-col {
+      width: 200px;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .right-col {
+      flex: 1;
+      background-color: #f9f9f9;
+      padding: 20px;
+      display: flex;
+      align-items: center; /* align items vertically */
+    }
+
+    .inner-flex {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      background-color: #e0e0e0;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .inner-item {
+      background-color: #ccc;
+      padding: 15px 25px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <div class="left-col">
+    <h2>Sidebar</h2>
+    <p>Fixed 200px</p>
+  </div>
+  <div class="right-col">
+    <div class="inner-flex">
+      <div class="inner-item">Item 1</div>
+      <div class="inner-item">Item 2</div>
+      <div class="inner-item">Item 3</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

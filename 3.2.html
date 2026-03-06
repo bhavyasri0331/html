@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="3.2.css">
+    <style>
+        h1{
+            text-align:center;
+            background-color:chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+       <marquee>Student Registration forms are closing now <strong>  Hurry Up!!</strong></marquee>
+    <hr>
+    <h1>STUDENT REGISTRATION FORM</h1>
+    <form action="practice.html" method="get">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="enter student name">
+        </div><BR>
+        <div>
+            <label for="roll">ROLL NO:</label>
+            <input type="number" id="roll" name="roll" required placeholder="enter student roll no">
+        </div><BR>
+        <div>
+            <label for="mail">EMAIL:</label>
+            <input id="mail" name="mail" type="mail" required placeholder="enter student email">
+        </div><BR>
+            <div>
+                <label for="gender">GENDER:</label>
+                <input type="radio" id="gender" name="gender">FEMALE
+                <input type="radio" id="gender" name="gender">MALE
+            </div><br>
+        <div>
+        
+            <label for="branch">BRANCH:</label><br>
+            <fieldset>
+            <input type="radio" id="branch" name="branch">IT<br>
+            <input type="radio" id="branch" name="branch">CSE<br>
+            <input type="radio" id="branch" name="branch">ECE<br>
+            <input type="radio" id="branch" name="branch">OTHER<br>
+            </fieldset>
+        </div><BR>
+        <div>
+            <label for="skills">SKILLS:</label>
+            <fieldset>
+            <input type="checkbox" id="skills" name="skills">PYTHON<br>
+            <input type="checkbox" id="skills" name="skills">JAVA<br>
+            <input type="checkbox" id="skills" name="skills">C<br>
+            <input type="checkbox" id="skills" name="skills">FULL STACK<br>
+            <input type="checkbox" id="skills" name="skills">DSA<br>
+            </fieldset>
+        </div><br>
+        <div>
+            <label for="state">STATE:</label>
+            <select name="state">
+                <option value="">---select state---</option>
+                <option type="andra">ANDRA  PRADESH</option>
+                <option type="telangana">TELANGANA</option>
+                <option type="KERALA">KERELA</option>
+                <option type="TAMIL NADU">TAMILNADU</option>             
+            </select>
+        </div><br>
+        <div>
+            <button type="submit">SUBMIT</button>
+            <button type="button">RESTART</button>
+        </div>
+    </form>
+    
+</body>
+</html>

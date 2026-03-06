@@ -1,0 +1,9 @@
+.heading {
+  color: red;
+  text-decoration: underline;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 2px;
+  text-transform: capitalize;
+}

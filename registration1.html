@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+    }
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 24px;
+      border-bottom: 2px solid #6b3c00;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .description {
+      font-size: 14px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 20px 0 8px;
+    }
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .required::after {
+      content: " *";
+      color: red;
+    }
+    .checkbox-group,
+    .radio-group {
+      margin-top: 10px;
+    }
+    .checkbox-group label,
+    .radio-group label {
+      font-weight: normal;
+      display: block;
+      margin-bottom: 5px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0c5dd6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Event registration</h1>
+    <div class="description">
+      <p><strong>Event Timing:</strong> March 4th-6th, 2025<br>
+      <strong>Event Address:</strong> maisammaguda, Hyderabad, ST 12345<br>
+      <strong>Contact us at:</strong> (123) 741669552 or <a href="mailto:no_reply@example.com">no_reply@example.com</a></p>
+    </div>
+
+    <form>
+
+      <label for="name" class="required">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email" class="required">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="org" class="required">Organization</label>
+      <input type="text" id="org" name="org" required>
+
+      <label class="required">What days will you attend?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="days[]" value="Day 1"> Day 1</label>
+        <label><input type="checkbox" name="days[]" value="Day 2"> Day 2</label>
+        <label><input type="checkbox" name="days[]" value="Day 3"> Day 3</label>
+      </div>
+
+      <label class="required">Dietary restrictions</label>
+      <div class="radio-group">
+        <label><input type="radio" name="diet" value="None" required> None</label>
+        <label><input type="radio" name="diet" value="Vegetarian"> Vegetarian</label>
+        <label><input type="radio" name="diet" value="Vegan"> Vegan</label>
+        <label><input type="radio" name="diet" value="Kosher"> Kosher</label>
+        <label><input type="radio" name="diet" value="Gluten-free"> Gluten-free</label>
+        <label><input type="radio" name="diet" value="Other"> Other…</label>
+      </div>
+
+      <label class="required">
+        <input type="checkbox" name="agree" required>
+        I understand that I will have to pay $$ upon arrival
+      </label>
+
+      <button type="submit">Submit</button>
+
+    </form>
+  </div>
+
+</body>
+</html>

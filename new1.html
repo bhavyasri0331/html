@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavya Sri - 3D Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(124, 58, 237, 0.8);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg) translateY(-10px);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #7c3aed 0%, #c084fc 100%);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="relative min-h-screen flex flex-col">
+        <!-- Floating navigation -->
+        <nav class="fixed w-full z-50 bg-opacity-90 backdrop-blur-sm bg-gray-900 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <span class="text-xl font-bold text-purple-400">Bhavya's Portfolio</span>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#home" class="text-gray-300 hover:text-purple-400 transition duration-300">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-purple-400 transition duration-300">About</a>
+                        <a href="#skills" class="text-gray-300 hover:text-purple-400 transition duration-300">Skills</a>
+                        <a href="#projects" class="text-gray-300 hover:text-purple-400 transition duration-300">Projects</a>
+                        <a href="#contact" class="text-gray-300 hover:text-purple-400 transition duration-300">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section with 3D Effect -->
+        <section id="home" class="pt-32 pb-20 px-6 flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto">
+            <div class="md:w-1/2 mb-10 md:mb-0 glow-effect p-8 rounded-xl card-3d">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-purple-400">GAJAPURAM BHAVYA SRI</h1>
+                    <div class="text-xl mb-6 text-gray-300">Full Stack Developer | Data Enthusiast</div>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://linkedin.com" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full transition duration-300">LinkedIn</a>
+                        <a href="https://github.com" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full transition duration-300">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center card-3d">
+                <img src="C:\Users\bhavyasri\OneDrive\Desktop\WhatsApp Image 2025-07-03 at 18.35.34_cec403b2.jpg" alt="3D avatar illustration of Bhavya Sri with futuristic interface elements" class="rounded-full border-4 border-purple-500 w-64 h-64 md:w-80 md:h-80 object-cover">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-800 bg-opacity-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-8 text-center text-purple-400">Career Profile</h2>
+                <div class="bg-gray-900 rounded-xl p-8 glow-effect card-3d">
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Seeking an opportunity to work for an organization that provides a platform to learn and explore new technologies while improving my skills. Eager to leverage analytical skills and coding expertise to drive data-driven solutions and build innovative software applications.
+                    </p>
+                </div>
+                
+                <h2 class="text-3xl font-bold mb-8 mt-16 text-center text-purple-400">Education</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Education Card 1 -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">Bachelor of Engineering</h3>
+                        </div>
+                        <p class="text-gray-400">Malla Reddy Engineering College</p>
+                        <p class="text-gray-400">2023 - 2025</p>
+                        <p class="text-gray-300 mt-2">CGPA: 8.01/10</p>
+                    </div>
+                    
+                    <!-- Education Card 2 -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">Board of Intermediate</h3>
+                        </div>
+                        <p class="text-gray-400">Rishi Junior College</p>
+                        <p class="text-gray-400">2021 - 2023</p>
+                        <p class="text-gray-300 mt-2">Percentage: 88%</p>
+                    </div>
+                    
+                    <!-- Education Card 3 -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">Class X (SSC)</h3>
+                        </div>
+                        <p class="text-gray-400">Narayana Talent High School</p>
+                        <p class="text-gray-400">2020 - 2021</p>
+                        <p class="text-gray-300 mt-2">Percentage: 100%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Skills & Technologies</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Languages -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">Languages</h3>
+                        </div>
+                        <div class="mt-4">
+                            <div class="mb-3">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">Python</span>
+                                    <span class="text-gray-400">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="skill-bar h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">SQL</span>
+                                    <span class="text-gray-400">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="skill-bar h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Web Development -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">Web Development</h3>
+                        </div>
+                        <div class="mt-4">
+                            <div class="mb-3">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">HTML/CSS</span>
+                                    <span class="text-gray-400">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="skill-bar h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">Bootstrap</span>
+                                    <span class="text-gray-400">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="skill-bar h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools/Technologies -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">Tools/Technologies</h3>
+                        </div>
+                        <div class="mt-4">
+                            <div class="mb-3">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">Machine Learning</span>
+                                    <span class="text-gray-400">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="skill-bar h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">Tableau</span>
+                                    <span class="text-gray-400">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="skill-bar h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-300">Power BI</span>
+                                    <span class="text-gray-400">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="skill-bar h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-gray-800 bg-opacity-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Featured Projects</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner bg-gray-900 rounded-xl card-3d">
+                            <div class="flip-card-front p-6 glow-effect">
+                                <img src="C:\Users\bhavyasri\OneDrive\Desktop\WhatsApp Image 2025-07-03 at 16.34.48_5159da41.jpg" alt="Screenshot of Tourism Guide project showing travel destinations" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold text-purple-400 mb-2">Tourism Guide</h3>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-purple-900 text-purple-300 px-3 py-1 rounded-full text-sm">HTML</span>
+                                    <span class="bg-purple-900 text-purple-300 px-3 py-1 rounded-full text-sm">CSS</span>
+                                    <span class="bg-purple-900 text-purple-300 px-3 py-1 rounded-full text-sm">Web Scraping</span>
+                                </div>
+                                <p class="text-gray-300">Click to flip for details</p>
+                            </div>
+                            <div class="flip-card-back p-6 glow-effect">
+                                <h3 class="text-xl font-bold text-purple-400 mb-4">Project Details</h3>
+                                <ul class="list-disc pl-5 text-gray-300 space-y-2">
+                                    <li>Engineered a web scraping tool that extracted detailed information about top travel destinations based on user preferences.</li>
+                                    <li>Enhanced user experience by providing personalized content and increasing engagement by 40%.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner bg-gray-900 rounded-xl card-3d">
+                            <div class="flip-card-front p-6 glow-effect">
+                                <img src="C:\Users\bhavyasri\OneDrive\Desktop\WhatsApp Image 2025-07-03 at 16.34.44_3e591b91.jpg" alt="Screenshot of Responsive Food Ordering Website with menu items" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold text-purple-400 mb-2">Responsive Food Website</h3>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-purple-900 text-purple-300 px-3 py-1 rounded-full text-sm">HTML</span>
+                                    <span class="bg-purple-900 text-purple-300 px-3 py-1 rounded-full text-sm">CSS</span>
+                                    <span class="bg-purple-900 text-purple-300 px-3 py-1 rounded-full text-sm">Bootstrap</span>
+                                </div>
+                                <p class="text-gray-300">Click to flip for details</p>
+                            </div>
+                            <div class="flip-card-back p-6 glow-effect">
+                                <h3 class="text-xl font-bold text-purple-400 mb-4">Project Details</h3>
+                                <ul class="list-disc pl-5 text-gray-300 space-y-2">
+                                    <li>Developed a fully responsive food ordering website using HTML, CSS, and Bootstrap frameworks, prioritizing user experience and mobile-first design.</li>
+                                    <li>Designed a visually appealing interface for a food ordering website, streamlining user interactions to browse the menu, place orders, and process online payments.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Certifications</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Certification 1 -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">AI Tools Workshop</h3>
+                        </div>
+                        <p class="text-gray-400">BE 10X</p>
+                        <p class="text-gray-400">April 2025</p>
+                    </div>
+                    
+                    <!-- Certification 2 -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">Hackathon at IIT Hyderabad</h3>
+                        </div>
+                        <p class="text-gray-400">Inspira'25</p>
+                        <p class="text-gray-400">March 2025</p>
+                    </div>
+                    
+                    <!-- Certification 3 -->
+                    <div class="bg-gray-900 rounded-xl p-6 glow-effect card-3d">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 p-3 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-400">Introduction to HTML</h3>
+                        </div>
+                        <p class="text-gray-400">SoloLearn</p>
+                        <p class="text-gray-400">December 2024</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-800 bg-opacity-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Let's Connect</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-900 rounded-xl p-8 glow-effect card-3d">
+                        <h3 class="text-xl font-bold text-purple-400 mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="bg-purple-600 p-2 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">+91 7416693325</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-purple-600 p-2 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">gajapurambhavya@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="bg-purple-600 p-2 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">Hyderabad, India</span>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-bold text-purple-400 mb-4">Social Profiles</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-700 hover:bg-purple-600 p-3 rounded-full transition duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="bg-gray-700 hover:bg-purple-600 p-3 rounded-full transition duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-xl p-8 glow-effect card-3d">
+                        <h3 class="text-xl font-bold text-purple-400 mb-6">Send Me a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-300 mb-2">Your Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-300 mb-2">Your Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+                            </div>
+                            <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition duration-300 w-full">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <p class="text-gray-400">© 2025 Gajapuram Bhavya Sri. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Three.js scene
+        document.addEventListener('DOMContentLoaded', function() {
+            // Floating animation for cards
+            gsap.to(".card-3d", {
+                y: 10,
+                repeat: -1,
+                yoyo: true,
+                duration: 3,
+                ease: "sine.inOut"
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Particles.js configuration
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#7c3aed"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#7c3aed",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Scroll animations
+            gsap.registerPlugin(ScrollTrigger);
+            
+            gsap.from(".flip-card", {
+                scrollTrigger: {
+                    trigger: "#projects",
+                    start: "top bottom"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2
+            });
+            
+            gsap.from(".card-3d", {
+                scrollTrigger: {
+                    trigger: ".card-3d",
+                    start: "top 80%"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.1
+            });
+            
+            // Mouse parallax effect
+            document.addEventListener('mousemove', function(e) {
+                const cards = document.querySelectorAll('.card-3d');
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateY = (x - centerX) / 20;
+                    const rotateX = -(y - centerY) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                });
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</body>
+</html>
